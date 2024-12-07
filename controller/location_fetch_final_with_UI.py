@@ -1,5 +1,3 @@
-# Here’s the controller code,(Both solver and UI)(Replace the IP address)
-
 from flask import Flask, render_template, request
 import numpy as np
 import requests
@@ -186,7 +184,7 @@ def move_arm():
                 final += ",1900"
 
             print(f"Sending position: {final}")
-            url = f"http://127.0.0.1:5000/set_positions?pos={final}"
+            url = f"http://192.168.1.104/set_positions?pos={final}"
             response = requests.get(url)
             if response.status_code == 200:
                 print(f"Success: Arm moved to {action} position.")
@@ -195,6 +193,5 @@ def move_arm():
 
     return render_template('index.html', success=True)
 
-# Correct
 if __name__ == '__main__':
     app.run(debug=True)
