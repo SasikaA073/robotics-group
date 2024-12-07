@@ -189,8 +189,11 @@ for i, (H_matrix, action) in enumerate(zip(locations, arm_actions)):
         
         # Send the API request
         print(f"Sending position: {final}")
-        url = f"http://192.168.1.104/set_positions?pos={final}"
+        # url = f"http://192.168.1.104/set_positions?pos={final}"
+        url = f"http://127.0.0.1:5000/set_positions?pos={final}" # Localhost for the momnet-Sasika 
         response = requests.get(url)
+
+        
         
         # Print the response from the API (for debugging purposes)
         print(f"API Response: {response.status_code}")

@@ -7,7 +7,7 @@ from roboticstoolbox import DHRobot, RevoluteDH
 from spatialmath import SE3
 
 # Initialize Flask app
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Define the links using Denavit-Hartenberg parameters
 L1 = RevoluteDH(d=96, a=0, alpha=np.pi/2)
@@ -195,5 +195,6 @@ def move_arm():
 
     return render_template('index.html', success=True)
 
-if _name_ == '_main_':
+# Correct
+if __name__ == '__main__':
     app.run(debug=True)

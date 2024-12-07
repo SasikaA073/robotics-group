@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Arm Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        select, input[type="submit"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Robot Arm Control Panel</h1>
+    {% if success %}
+    <p style="color: green;">Movement Completed Successfully!</p>
+    {% endif %}
+    <form action="/move" method="post">
+        <label for="color">Select Cube Color:</label>
+        <select name="color" id="color" required>
+            <option value="">Choose a Cube Color</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+        </select>
+
+        <label for="destination">Select Destination:</label>
+        <select name="destination" id="destination" required>
+            <option value="">Choose a Destination</option>
+            <option value="First">First Destination</option>
+            <option value="Second">Second Destination</option>
+            <option value="Third">Third Destination</option>
+        </select>
+
+        <input type="submit" value="Move Robot Arm">
+    </form>
+</body>
+</html>
