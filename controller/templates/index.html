@@ -12,11 +12,11 @@
             box-sizing: border-box;
         }
 
-        /* Body */
+        /* Dark Theme Body */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #121212;
+            color: #e0e0e0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,18 +26,19 @@
 
         /* Container for the form */
         .container {
-            background-color: #fff;
+            background-color: #1e1e1e;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             padding: 40px;
             width: 100%;
             max-width: 400px;
+            border: 1px solid #333;
         }
 
         /* Title */
         h1 {
             font-size: 24px;
-            color: #4e4e4e;
+            color: #ffffff;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -45,7 +46,7 @@
         /* Form Labels */
         label {
             font-size: 16px;
-            color: #555;
+            color: #b0b0b0;
             margin-bottom: 8px;
             display: block;
         }
@@ -71,39 +72,46 @@
             font-weight: bold;
             color: white;
             transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .color-option:hover,
+        .destination-option:hover {
+            opacity: 1;
         }
 
         .color-option.green {
-            background-color: green;
+            background-color: #2e7d32;
         }
 
         .color-option.blue {
-            background-color: blue;
+            background-color: #1565c0;
         }
 
         .color-option.red {
-            background-color: red;
+            background-color: #c62828;
         }
 
         .destination-option {
-            background-color: #4CAF50;
+            background-color: #2e7d32;
         }
 
         .destination-option.first {
-            background-color: #4CAF50;
+            background-color: #2e7d32;
         }
 
         .destination-option.second {
-            background-color: #2196f3;
+            background-color: #1565c0;
         }
 
         .destination-option.third {
-            background-color: #ff5722;
+            background-color: #c62828;
         }
 
         /* Highlight selected option */
         .selected {
-            border: 3px solid #66ccff;
+            border: 3px solid #4fc3f7;
+            opacity: 1;
         }
 
         /* Button */
@@ -111,23 +119,24 @@
             width: 100%;
             padding: 12px;
             font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #4fc3f7;
+            color: #121212;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-weight: bold;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #03a9f4;
         }
 
         /* Success Message */
         .success {
             text-align: center;
             font-size: 18px;
-            color: #4CAF50;
+            color: #4fc3f7;
             margin-top: 20px;
         }
 

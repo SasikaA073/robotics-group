@@ -8,35 +8,35 @@ from spatialmath import SE3
 app = Flask(__name__)
 
 # Define the links using Denavit-Hartenberg parameters
-L1 = RevoluteDH(d=96, a=0, alpha=np.pi/2)
-L2 = RevoluteDH(d=0, a=-104, alpha=0)
-L3 = RevoluteDH(d=0, a=-64, alpha=0)
-L4 = RevoluteDH(d=-9, a=0, alpha=-np.pi/2)
-L5 = RevoluteDH(d=137, a=0, alpha=0)
+Link1 = RevoluteDH(d=96, a=0, alpha=np.pi/2)
+Link2 = RevoluteDH(d=0, a=-104, alpha=0)
+Link3 = RevoluteDH(d=0, a=-64, alpha=0)
+Link4 = RevoluteDH(d=-9, a=0, alpha=-np.pi/2)
+Link5 = RevoluteDH(d=137, a=0, alpha=0)
 
 # Create the SerialLink robot
-KR = DHRobot([L1, L2, L3, L4, L5], name='robot')
+KR = DHRobot([Link1, Link2, Link3, Link4, Link5], name='robot')
 
 # Define positions for the boxes and destinations
-GreenboxPos = np.array([
+GreenBoxPos = np.array([
     [0, 0, 1, 250],   # Location 1
-    [0, 1, 0, 0],
+    [0, 1, 0,   0],
     [-1, 0, 0, 50],
-    [0, 0, 0, 1]
+    [0, 0, 0,   1]
 ])
 
-BlueboxPos = np.array([
-    [0, 0, 1, 250],
+BlueBoxPos = np.array([
+    [0, 0, 1,  250],
     [0, 1, 0, -100],
-    [-1, 0, 0, 50],
-    [0, 0, 0, 1]
+    [-1, 0, 0,  50],
+    [0, 0, 0,    1]
 ])
 
-RedboxPos = np.array([
+RedBoxPos = np.array([
     [0, 0, 1, 150],
-    [0, 1, 0, -200],
+    [0, 1, 0,-200],
     [-1, 0, 0, 60],
-    [0, 0, 0, 1]
+    [0, 0,  0,  1]
 ])
 
 # Additional destination positions
@@ -44,29 +44,31 @@ firstDestinationPos = np.array([
     [0, 0, 1, 200],
     [0, 1, 0, 150],
     [-1, 0, 0, 50],
-    [0, 0, 0, 1]
+    [0, 0, 0,   1]
 ])
 
 secondDestinationPos = np.array([
     [0, 0, 1, 250],
     [0, 1, 0, 100],
     [-1, 0, 0, 50],
-    [0, 0, 0, 1]
+    [0, 0, 0,   1]
 ])
 
 thirdDestinationPos = np.array([
     [0, 0, 1, 150],
     [0, 1, 0, 200],
     [-1, 0, 0, 50],
-    [0, 0, 0, 1]
+    [0, 0, 0,   1]
 ])
 
 freePos = np.array([
     [0, 0, 1, 250],
-    [0, 1, 0, 0],
+    [0, 1, 0,   0],
     [-1, 0, 0, 40],
-    [0, 0, 0, 1]
+    [0, 0, 0,   1]
 ])
+
+# ---------------------------------------------------------------------------------------------------
 
 # Route to render the HTML page
 @app.route('/')
@@ -82,11 +84,11 @@ def move_arm():
 
     # Map the color to the corresponding box position
     if cube_color == "Green":
-        box_pos = GreenboxPos
+        box_pos = GreenBoxPos
     elif cube_color == "Blue":
-        box_pos = BlueboxPos
+        box_pos = BlueBoxPos
     elif cube_color == "Red":
-        box_pos = RedboxPos
+        box_pos = RedBoxPos
 
     # Map the destination to the corresponding destination position
     if destination == "First":
